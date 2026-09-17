@@ -1,0 +1,10 @@
+@use './tokens.scss';
+* { box-sizing: border-box; }
+html { font-family: var(--font-sans); background: var(--color-canvas); color: var(--color-text); }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+::selection { background: rgb(169 154 232 / 36%); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
