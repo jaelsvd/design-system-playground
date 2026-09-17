@@ -1,1 +1,20 @@
-import type { Meta, StoryObj } from '@storybook/react'; import { Info } from 'lucide-react'; import { Button } from '../Button'; import { Tooltip } from './Tooltip'; const meta = { title: 'Components/Tooltip', component: Tooltip, tags: ['autodocs'], args: { label: 'Helpful context', children: <Button iconOnly variant="secondary" aria-label="More information"><Info size={16}/></Button> } } satisfies Meta<typeof Tooltip>; export default meta; type Story = StoryObj<typeof meta>; export const Default: Story = {}
+import type { Meta, StoryObj } from "@storybook/react";
+import { Info } from "lucide-react";
+import { Button } from "../Button";
+import { Tooltip } from "./Tooltip";
+const meta = {
+  title: "Components/Tooltip",
+  component: Tooltip,
+  tags: ["autodocs"],
+  args: {
+    label: "Helpful context",
+    children: (
+      <Button iconOnly variant="secondary" aria-label="More information">
+        <Info size={16} />
+      </Button>
+    ),
+  },
+} satisfies Meta<typeof Tooltip>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {};

@@ -1,1 +1,23 @@
-import type { Meta, StoryObj } from '@storybook/react'; import { Inbox, Plus } from 'lucide-react'; import { EmptyState } from './EmptyState'; import { Button } from '../Button'; const meta = { title: 'Patterns/Empty State', component: EmptyState, tags: ['autodocs'], args: { icon: <Inbox size={20}/>, title: 'Nothing here yet', description: 'Create a project to start organizing your work.', actions: <Button size="small"><Plus size={15}/>Create project</Button> } } satisfies Meta<typeof EmptyState>; export default meta; type Story = StoryObj<typeof meta>; export const Default: Story = {}
+import type { Meta, StoryObj } from "@storybook/react";
+import { Inbox, Plus } from "lucide-react";
+import { EmptyState } from "./EmptyState";
+import { Button } from "../Button";
+const meta = {
+  title: "Patterns/Empty State",
+  component: EmptyState,
+  tags: ["autodocs"],
+  args: {
+    icon: <Inbox size={20} />,
+    title: "Nothing here yet",
+    description: "Create a project to start organizing your work.",
+    actions: (
+      <Button size="small">
+        <Plus size={15} />
+        Create project
+      </Button>
+    ),
+  },
+} satisfies Meta<typeof EmptyState>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = {};

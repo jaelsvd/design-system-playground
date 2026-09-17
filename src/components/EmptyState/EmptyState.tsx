@@ -1,2 +1,24 @@
-import type { ReactNode } from 'react'; import styles from './EmptyState.module.scss'
-export function EmptyState({ icon, title, description, actions }: { icon: ReactNode; title: string; description: string; actions?: ReactNode }) { return <section className={styles.empty}><div className={styles.icon} aria-hidden="true">{icon}</div><h3>{title}</h3><p>{description}</p>{actions && <div className={styles.actions}>{actions}</div>}</section> }
+import type { ReactNode } from "react";
+import styles from "./EmptyState.module.scss";
+export function EmptyState({
+  icon,
+  title,
+  description,
+  actions,
+}: {
+  icon: ReactNode;
+  title: string;
+  description: string;
+  actions?: ReactNode;
+}) {
+  return (
+    <section className={styles.empty}>
+      <div className={styles.icon} aria-hidden="true">
+        {icon}
+      </div>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      {actions && <div className={styles.actions}>{actions}</div>}
+    </section>
+  );
+}

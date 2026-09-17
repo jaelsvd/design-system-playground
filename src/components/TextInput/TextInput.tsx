@@ -1,8 +1,84 @@
-import { useId, type InputHTMLAttributes, type ReactNode } from 'react'
-import styles from './TextInput.module.scss'
-export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> { label: string; helperText?: string; error?: string; success?: string; leadingIcon?: ReactNode; trailingIcon?: ReactNode; characterCount?: boolean }
-export function TextInput({ label, helperText, error, success, leadingIcon, trailingIcon, characterCount, id, maxLength, value, defaultValue, className = '', ...props }: TextInputProps) {
-  const generatedId = useId(); const inputId = id ?? generatedId; const description = error ?? success ?? helperText; const describedBy = description || characterCount ? `${inputId}-meta` : undefined
-  const count = String(value ?? defaultValue ?? '').length
-  return <div className={[styles.field, error && styles.error, success && styles.success, className].filter(Boolean).join(' ')}><label className={styles.label} htmlFor={inputId}>{label}</label><div className={styles.control}>{leadingIcon && <span className={styles.icon} aria-hidden="true">{leadingIcon}</span>}<input id={inputId} maxLength={maxLength} value={value} defaultValue={defaultValue} aria-invalid={Boolean(error) || undefined} aria-describedby={describedBy} {...props}/>{trailingIcon && <span className={styles.icon} aria-hidden="true">{trailingIcon}</span>}</div>{(description || characterCount) && <div id={`${inputId}-meta`} className={styles.meta} aria-live={error ? 'polite' : undefined}><span>{description}</span>{characterCount && maxLength && <span>{count}/{maxLength}</span>}</div>}</div>
+import { useId, type InputHTMLAttributes, type ReactNode } from "react";
+import styles from "./TextInput.module.scss";
+export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+  helperText?: string;
+  error?: string;
+  success?: string;
+  leadingIcon?: ReactNode;
+  trailingIcon?: ReactNode;
+  characterCount?: boolean;
+}
+export function TextInput({
+  label,
+  helperText,
+  error,
+  success,
+  leadingIcon,
+  trailingIcon,
+  characterCount,
+  id,
+  maxLength,
+  value,
+  defaultValue,
+  className = "",
+  ...props
+}: TextInputProps) {
+  const generatedId = useId();
+  const inputId = id ?? generatedId;
+  const description = error ?? success ?? helperText;
+  const describedBy =
+    description || characterCount ? `${inputId}-meta` : undefined;
+  const count = String(value ?? defaultValue ?? "").length;
+  return (
+    <div
+      className={[
+        styles.field,
+        error && styles.error,
+        success && styles.success,
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
+      <label className={styles.label} htmlFor={inputId}>
+        {label}
+      </label>
+      <div className={styles.control}>
+        {leadingIcon && (
+          <span className={styles.icon} aria-hidden="true">
+            {leadingIcon}
+          </span>
+        )}
+        <input
+          id={inputId}
+          maxLength={maxLength}
+          value={value}
+          defaultValue={defaultValue}
+          aria-invalid={Boolean(error) || undefined}
+          aria-describedby={describedBy}
+          {...props}
+        />
+        {trailingIcon && (
+          <span className={styles.icon} aria-hidden="true">
+            {trailingIcon}
+          </span>
+        )}
+      </div>
+      {(description || characterCount) && (
+        <div
+          id={`${inputId}-meta`}
+          className={styles.meta}
+          aria-live={error ? "polite" : undefined}
+        >
+          <span>{description}</span>
+          {characterCount && maxLength && (
+            <span>
+              {count}/{maxLength}
+            </span>
+          )}
+        </div>
+      )}
+    </div>
+  );
 }

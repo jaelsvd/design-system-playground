@@ -1,1 +1,30 @@
-import type { Meta, StoryObj } from '@storybook/react'; import { Card, CardContent, CardFooter, CardHeader } from './Card'; import { Button } from '../Button'; const meta = { title: 'Components/Card', component: Card, tags: ['autodocs'] } satisfies Meta<typeof Card>; export default meta; type Story = StoryObj<typeof meta>; export const Composed: Story = { render: () => <Card style={{ maxWidth: 420 }}><CardHeader><strong>Workspace access</strong></CardHeader><CardContent>Members can view and edit shared projects.</CardContent><CardFooter><Button size="small">Manage access</Button></CardFooter></Card> }; export const Selected: Story = { render: () => <Card selected style={{ padding: 20 }}>Selected payment method</Card> }
+import type { Meta, StoryObj } from "@storybook/react";
+import { Card, CardContent, CardFooter, CardHeader } from "./Card";
+import { Button } from "../Button";
+const meta = {
+  title: "Components/Card",
+  component: Card,
+  tags: ["autodocs"],
+} satisfies Meta<typeof Card>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Composed: Story = {
+  render: () => (
+    <Card style={{ maxWidth: 420 }}>
+      <CardHeader>
+        <strong>Workspace access</strong>
+      </CardHeader>
+      <CardContent>Members can view and edit shared projects.</CardContent>
+      <CardFooter>
+        <Button size="small">Manage access</Button>
+      </CardFooter>
+    </Card>
+  ),
+};
+export const Selected: Story = {
+  render: () => (
+    <Card selected style={{ padding: 20 }}>
+      Selected payment method
+    </Card>
+  ),
+};

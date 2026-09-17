@@ -1,1 +1,62 @@
-.field { display: grid; gap: var(--space-2); } .label { font-size: var(--text-sm); font-weight: var(--weight-medium); } .control { align-items: center; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); display: flex; min-height: 2.6rem; padding: 0 var(--space-3); transition: border-color var(--duration-fast), box-shadow var(--duration-fast); } .control:focus-within { border-color: var(--color-accent); box-shadow: var(--focus-ring); } .error .control { border-color: var(--color-danger); } .success .control { border-color: var(--color-success); } input { background: transparent; border: 0; color: var(--color-text); flex: 1; min-width: 0; outline: 0; padding: 0 var(--space-2); } input::placeholder { color: var(--color-text-faint); } .icon { color: var(--color-text-faint); display: grid; place-items: center; } .meta { color: var(--color-text-muted); display: flex; font-size: var(--text-xs); justify-content: space-between; } .error .meta { color: var(--color-danger); } .success .meta { color: var(--color-success); } input:disabled { cursor: not-allowed; }
+.field {
+  display: grid;
+  gap: var(--space-2);
+}
+.label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+.control {
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  min-height: 2.6rem;
+  padding: 0 var(--space-3);
+  transition:
+    border-color var(--duration-fast),
+    box-shadow var(--duration-fast);
+}
+.control:focus-within {
+  border-color: var(--color-accent);
+  box-shadow: var(--focus-ring);
+}
+.error .control {
+  border-color: var(--color-danger);
+}
+.success .control {
+  border-color: var(--color-success);
+}
+input {
+  background: transparent;
+  border: 0;
+  color: var(--color-text);
+  flex: 1;
+  min-width: 0;
+  outline: 0;
+  padding: 0 var(--space-2);
+}
+input::placeholder {
+  color: var(--color-text-faint);
+}
+.icon {
+  color: var(--color-text-faint);
+  display: grid;
+  place-items: center;
+}
+.meta {
+  color: var(--color-text-muted);
+  display: flex;
+  font-size: var(--text-xs);
+  justify-content: space-between;
+}
+.error .meta {
+  color: var(--color-danger);
+}
+.success .meta {
+  color: var(--color-success);
+}
+input:disabled {
+  cursor: not-allowed;
+}
